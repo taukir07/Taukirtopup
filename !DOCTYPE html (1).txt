@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Order - Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #ff4500;
+        }
+        .message {
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>আপনার অর্ডার কনফর্ম হয়েছে!</h1>
+    <div class="message">
+        <p>আপনার অর্ডার সফলভাবে জমা হয়েছে। অনুগ্রহপূর্বক ৫-৩০ মিনিট অপেক্ষা করুন।</p>
+    </div>
+
+</body>
+</html>

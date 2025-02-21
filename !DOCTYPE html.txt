@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taukir TopUp - FF Diamond</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #ff4500;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #d93c00;
+        }
+        .payment-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .payment-info p {
+            font-size: 18px;
+            color: #333;
+        }
+        .diamond-prices {
+            margin-top: 20px;
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .diamond-prices table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .diamond-prices th, .diamond-prices td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Taukir TopUp - FF Diamond</h1>
+    
+    <div class="container">
+        <label for="playerId">ফ্রি ফায়ার আইডি:</label>
+        <input type="text" id="playerId" placeholder="আপনার ফ্রি ফায়ার আইডি লিখুন" required>
+
+        <label for="diamondAmount">ডায়মন্ড পরিমাণ:</label>
+        <select id="diamondAmount">
+            <option value="25">25 Diamond - 25৳</option>
+            <option value="50">50 Diamond - 45৳</option>
+            <option value="115">115 Diamond - 85৳</option>
+            <option value="240">240 Diamond - 160৳</option>
+            <option value="355">355 Diamond - 250৳</option>
+            <option value="505">505 Diamond - 350৳</option>
+            <option value="610">610 Diamond - 410৳</option>
+            <option value="850">850 Diamond - 580৳</option>
+            <option value="1090">1090 Diamond - 740৳</option>
+            <option value="1240">1240 Diamond - 810৳</option>
+            <option value="1850">1850 Diamond - 1220৳</option>
+            <option value="2530">2530 Diamond - 1625৳</option>
+            <option value="3140">3140 Diamond - 1990৳</option>
+            <option value="3770">3770 Diamond - 2435৳</option>
+            <option value="5060">5060 Diamond - 3250৳</option>
+            <option value="10120">10120 Diamond - 6500৳</option>
+            <option value="weekly">Weekly - 161৳</option>
+            <option value="2x_weekly">2x Weekly - 322৳</option>
+            <option value="monthly">Monthly - 805৳</option>
+            <option value="levelup">Level Up Pass - 162৳</option>
+        </select>
+
+        <label for="trxId">বিকাশ ট্রানজেকশন আইডি:</label>
+        <input type="text" id="trxId" placeholder="ট্রানজেকশন আইডি লিখুন" required>
+
+        <button onclick="placeOrder()">অর্ডার করুন</button>
+
+        <div class="payment-info">
+            <p>বিকাশ নাম্বার: <strong>0139571522</strong> (সেন্ড মানি করুন)</p>
+        </div>
+    </div>
+
+    <div class="diamond-prices">
+        <h3>ডায়মন্ড প্যাকেজ:</h3>
+        <table>
+            <tr><th>ডায়মন্ড</th><th>মূল্য (৳)</th></tr>
+            <tr><td>25 Diamond</td><td>25৳</td></tr>
+            <tr><td>50 Diamond</td><td>45৳</td></tr>
+            <tr><td>115 Diamond</td><td>85৳</td></tr>
+            <tr><td>240 Diamond</td><td>160৳</td></tr>
+            <tr><td>355 Diamond</td><td>250৳</td></tr>
+            <tr><td>505 Diamond</td><td>350৳</td></tr>
+            <tr><td>610 Diamond</td><td>410৳</td></tr>
+            <tr><td>850 Diamond</td><td>580৳</td></tr>
+            <tr><td>1090 Diamond</td><td>740৳</td></tr>
+            <tr><td>1240 Diamond</td><td>810৳</td></tr>
+            <tr><td>1850 Diamond</td><td>1220৳</td></tr>
+            <tr><td>2530 Diamond</td><td>1625৳</td></tr>
+            <tr><td>3140 Diamond</td><td>1990৳</td></tr>
+            <tr><td>3770 Diamond</td><td>2435৳</td></tr>
+            <tr><td>5060 Diamond</td><td>3250৳</td></tr>
+            <tr><td>10120 Diamond</td><td>6500৳</td></tr>
+            <tr><td>Weekly</td><td>161৳</td></tr>
+            <tr><td>2x Weekly</td><td>322৳</td></tr>
+            <tr><td>Monthly</td><td>805৳</td></tr>
+            <tr><td>Level Up Pass</td><td>162৳</td></tr>
+        </table>
+    </div>
+
+    <script>
+        function placeOrder() {
+            let playerId = document.getElementById('playerId').value;
+            let diamondAmount = document.getElementById('diamondAmount').value;
+            let trxId = document.getElementById('trxId').value;
+
+            if (playerId === "" || trxId === "") {
+                alert("দয়া করে সব তথ্য পূর্ণ করুন!");
+                return;
+            }
+
+            // Send order details to email
+            let emailBody = `ফ্রি ফায়ার আইডি: <!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taukir TopUp - FF Diamond</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #ff4500;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #d93c00;
+        }
+        .payment-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .payment-info p {
+            font-size: 18px;
+            color: #333;
+        }
+        .diamond-prices {
+            margin-top: 20px;
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .diamond-prices table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .diamond-prices th, .diamond-prices td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Taukir TopUp - FF Diamond</h1>
+    
+    <div class="container">
+        <label for="playerId">ফ্রি ফায়ার আইডি:</label>
+        <input type="text" id="playerId" placeholder="আপনার ফ্রি ফায়ার আইডি লিখুন" required>
+
+        <label for="diamondAmount">ডায়মন্ড পরিমাণ:</label>
+        <select id="diamondAmount">
+            <option value="25">25 Diamond - 25৳</option>
+            <option value="50">50 Diamond - 45৳</option>
+            <option value="115">115 Diamond - 85৳</option>
+            <option value="240">240 Diamond - 160৳</option>
+            <option value="355">355 Diamond - 250৳</option>
+            <option value="505">505 Diamond - 350৳</option>
+            <option value="610">610 Diamond - 410৳</option>
+            <option value="850">850 Diamond - 580৳</option>
+            <option value="1090">1090 Diamond - 740৳</option>
+            <option value="1240">1240 Diamond - 810৳</option>
+            <option value="1850">1850 Diamond - 1220৳</option>
+            <option value="2530">2530 Diamond - 1625৳</option>
+            <option value="3140">3140 Diamond - 1990৳</option>
+            <option value="3770">3770 Diamond - 2435৳</option>
+            <option value="5060">5060 Diamond - 3250৳</option>
+            <option value="10120">10120 Diamond - 6500৳</option>
+            <option value="weekly">Weekly - 161৳</option>
+            <option value="2x_weekly">2x Weekly - 322৳</option>
+            <option value="monthly">Monthly - 805৳</option>
+            <option value="levelup">Level Up Pass - 162৳</option>
+        </select>
+
+        <label for="trxId">বিকাশ ট্রানজেকশন আইডি:</label>
+        <input type="text" id="trxId" placeholder="ট্রানজেকশন আইডি লিখুন" required>
+
+        <button onclick="placeOrder()">অর্ডার করুন</button>
+
+        <div class="payment-info">
+            <p>বিকাশ নাম্বার: <strong>0139571522</strong> (সেন্ড মানি করুন)</p>
+        </div>
+    </div>
+
+    <div class="diamond-prices">
+        <h3>ডায়মন্ড প্যাকেজ:</h3>
+        <table>
+            <tr><th>ডায়মন্ড</th><th>মূল্য (৳)</th></tr>
+            <tr><td>25 Diamond</td><td>25৳</td></tr>
+            <tr><td>50 Diamond</td><td>45৳</td></tr>
+            <tr><td>115 Diamond</td><td>85৳</td></tr>
+            <tr><td>240 Diamond</td><td>160৳</td></tr>
+            <tr><td>355 Diamond</td><td>250৳</td></tr>
+            <tr><td>505 Diamond</td><td>350৳</td></tr>
+            <tr><td>610 Diamond</td><td>410৳</td></tr>
+            <tr><td>850 Diamond</td><td>580৳</td></tr>
+            <tr><td>1090 Diamond</td><td>740৳</td></tr>
+            <tr><td>1240 Diamond</td><td>810৳</td></tr>
+            <tr><td>1850 Diamond</td><td>1220৳</td></tr>
+            <tr><td>2530 Diamond</td><td>1625৳</td></tr>
+            <tr><td>3140 Diamond</td><td>1990৳</td></tr>
+            <tr><td>3770 Diamond</td><td>2435৳</td></tr>
+            <tr><td>5060 Diamond</td><td>3250৳</td></tr>
+            <tr><td>10120 Diamond</td><td>6500৳</td></tr>
+            <tr><td>Weekly</td><td>161৳</td></tr>
+            <tr><td>2x Weekly</td><td>322৳</td></tr>
+            <tr><td>Monthly</td><td>805৳</td></tr>
+            <tr><td>Level Up Pass</td><td>162৳</td></tr>
+        </table>
+    </div>
+
+    <script>
+        function placeOrder() {
+            let playerId = document.getElementById('playerId').value;
+            let diamondAmount = document.getElementById('diamondAmount').value;
+            let trxId = document.getElementById('trxId').value;
+
+            if (playerId === "" || trxId === "") {
+                alert("দয়া করে সব তথ্য পূর্ণ করুন!");
+                return;
+            }
+
+            // Send order details to email
+            let emailBody = `ফ্রি ফায়ার আইডি: ${playerId}%0Aডায়মন্ড পরিমাণ: ${diamondAmount}%0Aবিকাশ ট্রানজেকশন আইডি: ${trxId}`;
+            window.location.href = `mailto:tsgtaukir@gmail.com?subject=FF Diamond Order&body=${emailBody}`;
+
+            // Redirect to confirmation page after order
+            setTimeout(function() {
+                window.location.href = "order_confirmation.html";
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>${playerId}%0Aডায়মন্ড পরিমাণ: ${diamondAmount}%0Aবিকাশ ট্রানজেকশন আইডি: ${trxId}`;
+            window.location.href = `mailto:tsgtaukir@gmail.com?subject=FF Diamond Order&body=${emailBody}`;
+
+            // Redirect to confirmation page after order
+            setTimeout(function() {
+                window.location.href = "order_confirmation.html";
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>
